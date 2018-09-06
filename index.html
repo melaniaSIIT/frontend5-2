@@ -12,15 +12,18 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Custom Style -->
+  <link rel="stylesheet" href="./assets/css/movies.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Bootstrap 4 Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <!-- Scroll Bar Scrit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
   <!-- Custom Script -->
+  <script src="./assets/js/calls.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/movies.js"></script>
 </head>
 
 <body>
@@ -29,19 +32,19 @@
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-      
+
       <!-- Logo -->
       <div class="sidebar-header text-center" id="logo">
         <h3>CodeBusters</h3>
       </div>
-      
+
       <!-- Login & Register buttons -->
       <!-- Will be displayed only if the user is logged out -->
       <div class="sidebar-header text-center" id="login">
         <button id="loginBtn" type="button" class="btn btn-light"><i class="fa fa-sign-in"></i><span> Log In</span></button>
         <button id="registerBtn" type="button" class="btn btn-light"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
       </div>
-      
+
       <!-- User Panel -->
       <!-- This panel will be displayed only when the user is logged in -->
       <div class="sidebar-header" id="userPanel">
@@ -53,7 +56,7 @@
           <p><i class="fa fa-circle"></i> Rank: <span id="userRank"></span></p>
         </div>
       </div>
-      
+
       <!-- Menu -->
       <ul class="list-unstyled components" id="menu">
         <li class="active">
@@ -71,7 +74,7 @@
           </ul>
         </li>
       </ul>
-      
+
       <!-- Admin Panel -->
       <!-- This panel will be displayed only if the user is an ADMIN -->
       <ul class="list-unstyled components" id="admPanel">
@@ -87,7 +90,7 @@
           </ul>
         </li>
       </ul>
-      
+
       <!-- Log Out Button -->
       <div>
         <button id="logout" type="button" class="ml-1 mb-3 mt-1 btn btn-light"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
@@ -100,26 +103,30 @@
 
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
 
-          	<!-- Sidebar Toggle Button -->
+            <!-- Sidebar Toggle Button -->
             <button type="button" id="sidebarCollapse" class="btn btn-dark">
               <i class="fa fa-align-left"></i>
               <span>Toggle</span>
             </button>
 
-            <div id="movies">
+          </div>
+          <div class="col-md-6">
+            <form class="form-inline" action="/action_page.php">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </div>
+
+          <div id="movies" class="row mt-5">
             <!-- All the movies will be displayed here -->
             <!-- Pagination will be added at the end of the page -->
-            </div>
-            
-
           </div>
         </div>
       </div>
 
     </div>
-
   </div>
 
 </body>
