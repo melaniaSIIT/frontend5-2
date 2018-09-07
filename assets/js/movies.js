@@ -28,7 +28,7 @@ function domLoaded() {
     var titleDiv = $("<div></div>").addClass("text-center");
 
     // Create the title with the results from the api between h4 tags //
-    var title = $("<h4>" + movie.title + "</h4>").addClass("text-center");
+    var title = $("<h4>" + movie.title + "</h4>");
 
     // Create HR line for title //
     var hrTitle = $("<hr>");
