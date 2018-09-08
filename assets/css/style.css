@@ -312,4 +312,16 @@ input {
   flex: 0 0 50%;
   max-width: 100%;
   }
-}
+
+  #addForm input {
+    width: 100%;
+    border: 1px solid;
+    outline-color: #1f1f1f;
+    background-color: whitesmoke;
+   }
+
+  #resetForm {
+    outline-color: #1f1f1f;
+    background-color: grey;
+
+  }
