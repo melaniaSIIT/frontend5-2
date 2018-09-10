@@ -25,6 +25,7 @@
   <script src="./assets/js/movieModel.js"></script>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/movies.js"></script>
+  <script src="./assets/js/addMovie.js"></script>
 </head>
 
 <body>
@@ -83,7 +84,7 @@
           <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
           <ul class="collapse list-unstyled" id="adminSubmenu">
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Add Movie</a>
+              <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-chevron-right"></i> Add Movie</a>
             </li>
             <li>
               <a href="#"><i class="fa fa-chevron-right"></i> Edit User</a>
@@ -129,6 +130,47 @@
 
     </div>
   </div>
+
+  <!-- Modal Add Movie -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add movie form</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+    
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form id="addForm">
+          Title:<br>
+           <input type="text" name="title"><br>
+           Year:<br>
+          <input type="text" name="year"><br>
+           imdbID:<br>
+          <input type="text" name="imdbID"><br>
+           Type:<br>
+          <input type="text" name="type"><br>
+           Poster:<br>
+          <input type="text" name="poster"><br>
+           <br>
+           <div id="succesPost"></div>
+           <br>
+           <button id="addMovie">Add movie</button>
+           <button type="reset" id="resetForm">Reset the form</button>
+        </form>
+      </div>
+    
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    
+      </div>
+    </div>
+    </div>
 
 </body>
 
