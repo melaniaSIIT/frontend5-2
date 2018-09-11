@@ -21,9 +21,9 @@
   <!-- Scroll Bar Scrit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
   <!-- Custom Script -->
-  <script src="./assets/js/moviesModel.js"></script>
-  <script src="./assets/js/movieModel.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/movieModel.js"></script>
+  <script src="./assets/js/moviesModel.js"></script>
   <script src="./assets/js/movies.js"></script>
   <script src="./assets/js/addMovieView.js"></script>
 </head>
@@ -65,13 +65,16 @@
           <a href="#moviesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Movies</a>
           <ul class="collapse list-unstyled" id="moviesSubmenu">
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Action</a>
+              <a href="#"><i class="fa fa-chevron-right"></i> Genre</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Comedy</a>
+              <a href="#"><i class="fa fa-chevron-right"></i> Year</a>
             </li>
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Horror</a>
+              <a href="#"><i class="fa fa-chevron-right"></i> Type</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-chevron-right"></i> Rating</a>
             </li>
           </ul>
         </li>
@@ -113,64 +116,74 @@
               <span>Toggle</span>
             </button>
 
-        <!-- Search Bar -->
-        <div class="col-md-6">
-            <form class="form-inline" >
-              <input class="form-control mr-sm-2" type="text" placeholder="Search..." id="searchBar" name="query">
-              <button class=" btn btn-success" type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="col-md-6 d-flex justify-content-end">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-success" type="submit">Search</button>
             </form>
           </div>
 
-          <div id="movies" class="row mt-5">
-            <!-- All the movies will be displayed here -->
-            <!-- Pagination will be added at the end of the page -->
+        </div>
+        <div id="movies" class="row mt-5">
+          <!-- All the movies will be displayed here -->
+          <!-- Pagination will be added at the end of the page -->
+        </div>
+
+        <!-- Modal Add Movie -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Add movie form</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form id="addForm">
+                  Title:<br>
+                  <input class="form-control" type="text" name="title"><br> Year:
+                  <br>
+                  <input class="form-control" type="text" name="year"><br> imdbID:
+                  <br>
+                  <input class="form-control" type="text" name="imdbID"><br> Type:
+                  <br>
+                  <input class="form-control" type="text" name="type"><br> Poster:
+                  <br>
+                  <input class="form-control" type="text" name="poster"><br>
+                  <br>
+                  <div id="succesPost"></div>
+                  <br>
+                  <button class=" btn btn-success" id="addMovie">Add movie</button>
+                  <button type="reset" class=" btn btn-secondary" id="resetForm">Reset the form</button>
+                </form>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <ul class="pagination justify-content-center" style="margin:20px 0">
+              <li class="page-item"><a class="page-link"><i class="fa fa-angle-double-left"></i> Previous</a></li>
+              <li class="page-item"><a class="page-link">Next <i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
           </div>
         </div>
       </div>
 
+
     </div>
   </div>
-
-  <!-- Modal Add Movie -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-    
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Add movie form</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-    
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form id="addForm">
-          Title:<br>
-           <input type="text" name="title"><br>
-           Year:<br>
-          <input type="text" name="year"><br>
-           imdbID:<br>
-          <input type="text" name="imdbID"><br>
-           Type:<br>
-          <input type="text" name="type"><br>
-           Poster:<br>
-          <input type="text" name="poster"><br>
-           <br>
-           <div id="succesPost"></div>
-           <br>
-           <button id="addMovie">Add movie</button>
-           <button type="reset" id="resetForm">Reset the form</button>
-        </form>
-      </div>
-    
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-    
-      </div>
-    </div>
-    </div>
 
 </body>
 

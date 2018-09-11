@@ -21,14 +21,14 @@ function domLoaded() {
 
     // Create a card for each movie //
     var movieDiv = $("<div></div>").addClass("col-md-6 mt-2 mb-2");
-    var movieCard = $("<div></div>").addClass("card");
-    var movieCardBlk = $("<div></div>").addClass("card-block p-2");
+    var movieCard = $("<div></div>").addClass("card bg-light text-dark");
+    var movieCardBlk = $("<div></div>").addClass("card-header");
 
     // Create a div for title //
     var titleDiv = $("<div></div>").addClass("text-center");
 
     // Create the title with the results from the api between h4 tags //
-    var title = $("<h4>" + movie.title + "</h4>");
+    var title = $("<h4>" + movie.title + "</h4>").addClass("text-center");
 
     // Create HR line for title //
     var hrTitle = $("<hr>");
@@ -37,10 +37,10 @@ function domLoaded() {
     var hrButton = $("<hr>");
 
     // Create a new row for images and description //
-    var rowDesc = $("<div></div>").addClass("row d-flex justify-content-between");
+    var rowDesc = $("<div></div>").addClass("row card-body");
 
     // Create a div for images with class col (collumn) //
-    var colDivImg = $("<div></div>").addClass("col-md-6 test");
+    var colDivImg = $("<div></div>").addClass("col-md-6 border-right");
 
     // Create a div for description with class col (collumn)
     var colDivDesc = $("<div></div>").addClass("col-md-6");
@@ -54,9 +54,16 @@ function domLoaded() {
     var type = $("<li>Type: " + movie.type + "</li>")
     var year = $("<li>Year: " + movie.year + "</li>")
     var rating = $("<li>Rating: " + movie.rating + "</li>")
-
+    
+    // Create the footer //
+    var cardFooter = $("<footer></footer>").addClass("card-footer");
+    
     // Create the button //
-    var button = $("<button>More Info</button>").addClass("btn btn-primary btn-block align-items-end");
+    var button = $("<button>More Info</button>").addClass("btn btn-primary btn-block");
+    
+    button.on("click", function() {
+      window.location = "http://cursuri-robertdanielcsaszar97119.codeanyapp.com/Project/CodeBusters/assets/pages/movie.html?movieId=" + movie.id;
+    })
 
     console.log("Titles: ", movie.title)
     // Add the movie container in the Main container //
@@ -100,6 +107,9 @@ function domLoaded() {
     movieCardBlk.append(hrButton);
 
     // Add button with "More Info" text for each movie //
-    movieCardBlk.append(button);
+    movieCardBlk.append(cardFooter);
+    
+    // Add button with "More Info" text for each movie //
+    cardFooter.append(button);
   }
 }
