@@ -14,31 +14,17 @@ console.log("DOM Loaded.");
 		let movieType=$('[name="type"]').val();
 		let moviePoster=$('[name="poster"]').val();
 		
-		const movie = {
+		const movie = new Movie({
 	    	Title: movieTitle,
 	    	Year: movieYear,
 	      	imdbID: movieimdbID,
 			Type: movieType,
 			Poster: moviePoster
-  		  };
+			});
+				
+	movie.AddMovie();
 	
-		
-		$.ajax({
-   		 url: "https://ancient-caverns-16784.herokuapp.com/movies",
-   		 method: "POST",
-		headers: {
-        		'X-Auth-Token': 'b80oqT2NRsAANP5GCf50lgTh5mNE3zuk'
-        },
-   		data: movie,
-    		success: function(data){
-			  console.log("Create movie", data);
-			  let succesEl = document.createElement('p');
-              succesEl.innerHTML = '<strong>Success!</strong> Movie posted with success!';
-			  let container2=document.getElementById("succesPost");
-			  container2.appendChild(succesEl);			  
-			  }
 		});
-	});
 
 	$('#resetForm').on('click', function(){
 		$("#succesPost").empty();

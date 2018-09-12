@@ -7,6 +7,7 @@ function Movie(options) {
   this.type = options.Type;
   this.year = options.Year;
   this.rating = options.imdbRating;
+  this.imdbID = options.imdbID;
 }
 
 Movie.prototype.getGameDetails = function() {
@@ -34,4 +35,28 @@ Movie.prototype.getGameDetails = function() {
       that.type = response.Type;
       that.seasons = response.totalSeasons;
     });
+}
+
+Movie.prototype.AddMovie = function() {
+  $.ajax({
+    url: "https://ancient-caverns-16784.herokuapp.com/movies",
+    method: "POST",
+headers: {
+        'X-Auth-Token': 'b80oqT2NRsAANP5GCf50lgTh5mNE3zuk'
+    },
+   data: {
+    Title: this.title,
+    Year: this.year,
+    imdbID: this.imdbID,
+    Type: this.type,
+    Poster: this.img
+  },
+    success: function(data){
+    console.log("Create movie", data);
+    let succesEl = document.createElement('p');
+          succesEl.innerHTML = '<strong>Success!</strong> Movie posted with success!';
+    let container2=document.getElementById("succesPost");
+    container2.appendChild(succesEl);			  
+    }
+});
 }
