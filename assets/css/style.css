@@ -213,9 +213,9 @@ ul ul a {
   #content {
     width: 100%;
   }
-  #content.active {
+/*   #content.active {
     width: calc(100% - 250px);
-  }
+  } */
   #sidebarCollapse span {
     display: none;
   }
