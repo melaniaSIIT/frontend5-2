@@ -26,9 +26,11 @@
   <script src="./assets/js/moviesModel.js"></script>
   <script src="./assets/js/movies.js"></script>
   <script src="./assets/js/addMovieView.js"></script>
+  <script src="./assets/js/login.js"></script>
+  <script src="./assets/js/register.js"></script>
 </head>
 
-<body>
+<body onload="checkUser()">
 
   <!-- Side Menu -->
   <div class="wrapper">
@@ -42,20 +44,20 @@
 
       <!-- Login & Register buttons -->
       <!-- Will be displayed only if the user is logged out -->
-      <div class="sidebar-header text-center" id="login">
-        <button id="loginBtn" type="button" class="btn btn-light"><i class="fa fa-sign-in"></i><span> Log In</span></button>
-        <button id="registerBtn" type="button" class="btn btn-light"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
+      <div class="sidebar-header text-center login">
+        <button type="button" class="btn btn-light loginBtn" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i><span> Log In</span></button>
+        <button type="button" class="btn btn-light registerBtn" data-toggle="modal" data-target="#registerModal"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
       </div>
 
       <!-- User Panel -->
       <!-- This panel will be displayed only when the user is logged in -->
-      <div class="sidebar-header" id="userPanel">
+      <div class="sidebar-header userPanel">
         <div class="text-center">
           <img class="img-fluid" id="avatar" src="./assets/images/placeholder.png" alt="avatar">
         </div>
         <div class="mt-2">
-          <p><i class="fa fa-user"></i> Name: <span id="userName"></span></p>
-          <p><i class="fa fa-circle"></i> Rank: <span id="userRank"></span></p>
+          <p><i class="fa fa-user"></i> Name: <span id="userName">Robert</span></p>
+          <p><i class="fa fa-circle"></i> Rank: <span id="userRank">Admin</span></p>
         </div>
       </div>
 
@@ -82,7 +84,7 @@
 
       <!-- Admin Panel -->
       <!-- This panel will be displayed only if the user is an ADMIN -->
-      <ul class="list-unstyled components" id="admPanel">
+      <ul class="list-unstyled components admPanel">
         <li class="active">
           <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
           <ul class="collapse list-unstyled" id="adminSubmenu">
@@ -98,7 +100,7 @@
 
       <!-- Log Out Button -->
       <div>
-        <button id="logout" type="button" class="ml-1 mb-3 mt-1 btn btn-light"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
+        <button type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
       </div>
 
     </nav>
@@ -115,16 +117,104 @@
               <i class="fa fa-align-left"></i>
               <span>Toggle</span>
             </button>
-
+            
+          <!-- Search -->
           </div>
           <div class="col-md-6 d-flex justify-content-end">
-            <form class="form-inline" >
-              <input class="form-control mr-sm-2" type="text" placeholder="Search..." id="searchBar" name="query">
-              <button class=" btn btn-success" type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+            <form class="form-inline" id="homeSearch">
+              <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search..." name="query">
+              <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
         </div>
+        
+        <div class="row">
+          <div class="col-md-12">
+            
+            <!-- Navigation bar that will be displayed only on small devices -->
+            <nav class="navbar navbar-expand-lg" id="navigation">
+              <div class="container-fluid">
+
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-align-right"></i>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                  <!-- Login & Register buttons -->
+                  <!-- Will be displayed only if the user is logged out -->
+                  <div class="sidebar-header text-center mt-2 login">
+                    <button type="button" class="btn btn-light loginBtn mb-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i><span> Log In</span></button>
+                    <button type="button" class="btn btn-light mb-2 registerBtn" data-toggle="modal" data-target="#registerModal"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
+                  </div>
+
+                  <!-- User Panel -->
+                  <!-- This panel will be displayed only when the user is logged in -->
+                  <div class="navigation-header userPanel">
+                    <div class="mt-2">
+                      <p><i class="fa fa-user"></i> Name: <span id="userName">Robert</span></p>
+                      <p><i class="fa fa-circle"></i> Rank: <span id="userRank">Admin</span></p>
+                    </div>
+                  </div>
+
+                  <!-- Menu -->
+                  <ul class="list-unstyled components" id="menu">
+                    <li class="active">
+                      <a href="#moviesSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Movies</a>
+                      <ul class="collapse list-unstyled" id="moviesSubmenu2">
+                        <li>
+                          <a href="#"><i class="fa fa-chevron-right"></i> Genre</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-chevron-right"></i> Year</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-chevron-right"></i> Type</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-chevron-right"></i> Rating</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <!-- Admin Panel -->
+                  <!-- This panel will be displayed only if the user is an ADMIN -->
+                  <ul class="list-unstyled components admPanel">
+                    <li class="active">
+                      <a href="#adminSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
+                      <ul class="collapse list-unstyled" id="adminSubmenu2">
+                        <li>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-chevron-right"></i> Add Movie</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-chevron-right"></i> Edit User</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+                  <!-- Search -->
+                  <div class="col-sm-12 d-flex justify-content-center" id="navSearch">
+                    <form class="form-inline" >
+                      <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search" name="query">
+                      <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>         
+                  
+                  <!-- Log Out Button -->
+                  <div>
+                    <button type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
+                  </div>
+                  
+                </div>
+              </div>
+            </nav>
+            
+          </div>
+        </div>
+        
         <div id="movies" class="row mt-5">
           <!-- All the movies will be displayed here -->
           <!-- Pagination will be added at the end of the page -->
@@ -132,7 +222,7 @@
 
         <!-- Modal Add Movie -->
         <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
               <!-- Modal Header -->
@@ -170,8 +260,8 @@
             </div>
           </div>
         </div>
-
-        <div class="row justify-content-center">
+        
+        <div class="row">
           <div class="col-md-12">
             <ul class="pagination justify-content-center" style="margin:20px 0">
               <li class="page-item"><a class="page-link"><i class="fa fa-angle-double-left"></i> Previous</a></li>

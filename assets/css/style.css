@@ -56,24 +56,32 @@ button:hover {
 }
 
 /* ---------------------------------------------------
+    NAVBAR STYLE
+----------------------------------------------------- */
+
+#navigation {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+/* ---------------------------------------------------
     LOG IN / LOG OUT & REGISTER BUTTONS
 ----------------------------------------------------- */
 
-#login {
-  display: none;
+.login {
+  display: visible;
 }
 
-#logout {
-  display: visible;
+.logout {
+  display: none;
 }
 
 /* ---------------------------------------------------
     USER PANEL STYLE
 ----------------------------------------------------- */
 
-#userPanel {
-  display: visible;
-  border-top: 1px solid #454545;
+.userPanel {
+  display: none;
   border-bottom: 1px solid #454545;
 }
 
@@ -86,8 +94,9 @@ button:hover {
     ADMIN PANEL STYLE
 ----------------------------------------------------- */
 
-#admPanel {
+.admPanel {
   border-bottom: 1px solid #454545;
+  display: none;
 }
 
 /* ---------------------------------------------------
@@ -133,22 +142,22 @@ nav {
   background: #1f1f1f;
 }
 
-#sidebar ul.components {
+#sidebar ul.components, #navigation ul.components {
   padding: 20px 0;
 }
 
-#sidebar ul p {
+#sidebar ul p, #navigation ul p {
   color: #fff;
   padding: 10px;
 }
 
-#sidebar ul li a {
+#sidebar ul li a, #navigation ul li a {
   padding: 10px;
   font-size: 1.1em;
   display: block;
 }
 
-#sidebar ul li a:hover {
+#sidebar ul li a:hover, #navigation ul li a:hover {
   color: black;
   background: #fff;
 }
@@ -193,9 +202,10 @@ ul ul a {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 771px) {
   #sidebar {
     margin-left: -250px;
+    display: none;
   }
   #sidebar.active {
     margin-left: 0;
@@ -209,19 +219,31 @@ ul ul a {
   #sidebarCollapse span {
     display: none;
   }
+  #sidebarCollapse {
+    display: none;
+  }
+  
+  #homeSearch {
+    display: none;
+  }
+}
+
+@media (min-width: 771px) {
+  #navigation {
+    display: none
+  }
 }
 
 /* ---------------------------------------------------
     LOGIN FORM
 ----------------------------------------------------- */
 
-.container-login-page {
+/* .container-login-page {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 15px;
-  background-color: white;
 }
 
 .wrap-login-form {
@@ -245,7 +267,7 @@ label {
   padding-top: 14px;
   display: inline-block;
   margin-bottom: .5rem;
-  color: white;
+  color: black;
 }
 
 .input-user-pass {
@@ -304,13 +326,13 @@ label {
   font-size: 16px;
   color: #fff;
   margin-left: 170px;
-}
+} */
 
 /* ---------------------------------------------------
     REGISTER FORM
 ----------------------------------------------------- */
 
-.container-register {
+/* .container-register {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -355,7 +377,7 @@ label {
   font-size: 16px;
   color: #fff;
   margin-left: 170px;
-}
+} */
 
 
 
