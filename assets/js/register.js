@@ -96,6 +96,7 @@ function domLoaded() {
         success: function(response) {
           localStorage.setItem("Token", response.accessToken);
           localStorage.setItem("Auth", response.authenticated);
+          localStorage.setItem("Name", user);
           checkUser();
         }
       });
