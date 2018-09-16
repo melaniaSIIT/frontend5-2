@@ -29,7 +29,7 @@ function domLoaded() {
     var formGroupPass = $("<div></div>").addClass("form-group")
 
     // Create Inputs //
-    var userName = $("<input type='text' id='userName' placeholder='Username'>").addClass("form-control");
+    var userN = $("<input type='text' id='userNames' placeholder='Username'>").addClass("form-control");
     var password = $("<input type='password' id='pwd' placeholder='Password'>").addClass("form-control");
 
     // Create Remember me checkbox //
@@ -65,7 +65,7 @@ function domLoaded() {
     form.append(formGroupUser);
 
     // Add the username input in form group//
-    formGroupUser.append(userName);
+    formGroupUser.append(userN);
 
     // Add form group for password input //
     form.append(formGroupPass);
@@ -88,7 +88,7 @@ function domLoaded() {
 
     function loginUser(event) {
       event.preventDefault()
-      var user = $("#userName").val();
+      var user = $("#userNames").val();
       var password = $("#pwd").val();
       $.ajax({
         url: "https://ancient-caverns-16784.herokuapp.com/auth/login",
@@ -108,6 +108,7 @@ function domLoaded() {
         success: function(response) {
           localStorage.setItem("Token", response.accessToken);
           localStorage.setItem("Auth", response.authenticated);
+          localStorage.setItem("Name", user);
           checkUser();
         }
       });

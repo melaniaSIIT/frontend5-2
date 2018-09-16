@@ -6,8 +6,12 @@ function Movie(options) {
   this.img = options.Poster;
   this.type = options.Type;
   this.year = options.Year;
+  this.duration = options.Runtime;
+  this.lang = options.Language;
+  this.country = options.Country;
   this.rating = options.imdbRating;
   this.imdbID = options.imdbID;
+  this.votes = options.imdbVotes;
 }
 
 Movie.prototype.getGameDetails = function() {

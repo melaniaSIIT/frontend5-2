@@ -15,9 +15,12 @@ var checkUser = function() {
   var logOutBtn = $(".logout");
   var userPanel = $(".userPanel");
   var adminPanel = $(".admPanel");
+  var name = $("#name");
   var token = localStorage.getItem("Token");
   var auth = localStorage.getItem("Auth");
+  var getName = localStorage.getItem("Name");
   if (token && auth !== null) {
+    name.append(getName)
     loginPanel.hide();
     userPanel.show();
     adminPanel.show();
@@ -55,9 +58,13 @@ var displayMovie = function(movie) {
   // Create an ul list //
   var list = $("<ul></ul>");
   var img = $(`<img src="` + movie.img + `">`).addClass("card-img-top");
-  var type = $("<li>Type: " + movie.type + "</li>")
-  var year = $("<li>Year: " + movie.year + "</li>")
-  var rating = $("<li>Rating: " + movie.rating + "</li>")
+  var type = $("<li><strong>Type:</strong> " + movie.type + "</li>")
+  var year = $("<li><strong>Year:</strong> " + movie.year + "</li>")
+  var duration = $("<li><strong>Runtime:</strong> " + movie.duration + "</li>")
+  var lang = $("<li><strong>Language:</strong> " + movie.lang + "</li>")
+  var country = $("<li><strong>Country:</strong> " + movie.country + "</li>")
+  var rating = $("<li><strong>Rating:</strong> " + movie.rating + "</li>")
+  var votes = $("<li><strong>Votes:</strong> " + movie.votes + "</li>")
 
   // Create the footer //
   var cardFooter = $("<footer></footer>").addClass("card-footer");
@@ -102,7 +109,11 @@ var displayMovie = function(movie) {
   colDivDesc.append(list);
   list.append(type);
   list.append(year);
+  list.append(duration);
+  list.append(lang);
+  list.append(country);
   list.append(rating);
+  list.append(votes);
 
   // Add button with "More Info" text for each movie //
   movieCard.append(cardFooter);

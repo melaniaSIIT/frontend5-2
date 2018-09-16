@@ -66,13 +66,48 @@
           <a href="#moviesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Movies</a>
           <ul class="collapse list-unstyled" id="moviesSubmenu">
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Action</a>
+              <a href="#genre" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Genre</a>
+              <ul class="collapse list-unstyled" id="genre">
+                <li>
+                  <a href="#"><i class="fa fa-caret-right"></i> Action</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> Animation</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> Adventure</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> Comedy</a>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Comedy</a>
+              <a href="#year" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Year</a>
+              <ul class="collapse list-unstyled" id="year">
+                <li>
+                  <a href="#"><i class="fa fa-caret-right"></i> 2017 - 2018</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 2016 - 2017</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 2015 - 2016</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 2014 - 2015</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> <i class="fa fa-angle-left"></i> 2015</a>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="#"><i class="fa fa-chevron-right"></i> Horror</a>
+              <a href="#type" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Type</a>
+              <ul class="collapse list-unstyled" id="type">
+                <li>
+                  <a href="#"><i class="fa fa-caret-right"></i> Movie</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> Series</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#rating" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Rating</a>
+              <ul class="collapse list-unstyled" id="rating">
+                <li>
+                  <a href="#"><i class="fa fa-caret-right"></i> 9 - 10</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 8 - 9</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 7 - 8</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> 6 - 7</a>
+                  <a href="#"><i class="fa fa-caret-right"></i> <i class="fa fa-angle-left"></i> 6</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
@@ -96,7 +131,7 @@
 
       <!-- Log Out Button -->
       <div>
-        <button  type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
+        <button type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
       </div>
 
     </nav>
@@ -113,8 +148,8 @@
               <i class="fa fa-align-left"></i>
               <span>Toggle</span>
             </button>
-            
-          <!-- Search -->
+
+            <!-- Search -->
           </div>
           <div class="col-md-6 d-flex justify-content-end">
             <form class="form-inline" id="homeSearch">
@@ -125,144 +160,176 @@
 
         </div>
 
-        </div>
-        
-        <div class="row">
-          <div class="col-md-12">
-            
-            <!-- Navigation bar that will be displayed only on small devices -->
-            <nav class="navbar navbar-expand-lg" id="navigation">
-              <div class="container-fluid">
+      </div>
 
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="row">
+        <div class="col-md-12">
+
+          <!-- Navigation bar that will be displayed only on small devices -->
+          <nav class="navbar navbar-expand-lg" id="navigation">
+            <div class="container-fluid">
+
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="fa fa-align-right"></i>
                 </button>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                  <!-- Login & Register buttons -->
-                  <!-- Will be displayed only if the user is logged out -->
-                  <div class="sidebar-header text-center mt-2 login">
-                    <button type="button" class="btn btn-light loginBtn mb-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i><span> Log In</span></button>
-                    <button type="button" class="btn btn-light registerBtn mb-2" data-toggle="modal" data-target="#registerModal"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
-                  </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                  <!-- User Panel -->
-                  <!-- This panel will be displayed only when the user is logged in -->
-                  <div class="navigation-header userPanel">
-                    <div class="mt-2">
-                      <p><i class="fa fa-user"></i> Name: <span id="userName">Robert</span></p>
-                      <p><i class="fa fa-circle"></i> Rank: <span id="userRank">Admin</span></p>
-                    </div>
-                  </div>
-
-                  <!-- Menu -->
-                  <ul class="list-unstyled components" id="menu">
-                    <li class="active">
-                      <a href="#moviesSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Movies</a>
-                      <ul class="collapse list-unstyled" id="moviesSubmenu2">
-                        <li>
-                          <a href="#"><i class="fa fa-chevron-right"></i> Genre</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-chevron-right"></i> Year</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-chevron-right"></i> Type</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-chevron-right"></i> Rating</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-
-                  <!-- Admin Panel -->
-                  <!-- This panel will be displayed only if the user is an ADMIN -->
-                  <ul class="list-unstyled components admPanel">
-                    <li class="active">
-                      <a href="#adminSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
-                      <ul class="collapse list-unstyled" id="adminSubmenu2">
-                        <li>
-                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-chevron-right"></i> Add Movie</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-chevron-right"></i> Edit User</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  
-                  <!-- Search -->
-                  <div class="col-sm-12 d-flex justify-content-center" id="navSearch">
-                    <form class="form-inline" >
-                      <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search" name="query">
-                      <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
-                    </form>
-                  </div>         
-                  
-                  <!-- Log Out Button -->
-                  <div>
-                    <button type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
-                  </div>
-                  
+                <!-- Login & Register buttons -->
+                <!-- Will be displayed only if the user is logged out -->
+                <div class="sidebar-header text-center mt-2 login">
+                  <button type="button" class="btn btn-light loginBtn mb-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i><span> Log In</span></button>
+                  <button type="button" class="btn btn-light registerBtn mb-2" data-toggle="modal" data-target="#registerModal"><i class="fa fa-hand-o-right"></i><span> Register</span></button>
                 </div>
+
+                <!-- User Panel -->
+                <!-- This panel will be displayed only when the user is logged in -->
+                <div class="navigation-header userPanel">
+                  <div class="mt-2">
+                    <p><i class="fa fa-user"></i> Name: <span id="userName">Robert</span></p>
+                    <p><i class="fa fa-circle"></i> Rank: <span id="userRank">Admin</span></p>
+                  </div>
+                </div>
+
+                <!-- Menu -->
+                <ul class="list-unstyled components" id="menu">
+                  <li class="active">
+                    <a href="#moviesSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Movies</a>
+                    <ul class="collapse list-unstyled" id="moviesSubmenu2">
+                      <li>
+                        <a href="#genre" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Genre</a>
+                        <ul class="collapse list-unstyled" id="genre">
+                          <li>
+                            <a href="#"><i class="fa fa-caret-right"></i> Action</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> Animation</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> Adventure</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> Comedy</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#year" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Year</a>
+                        <ul class="collapse list-unstyled" id="year">
+                          <li>
+                            <a href="#"><i class="fa fa-caret-right"></i> 2017 - 2018</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 2016 - 2017</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 2015 - 2016</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 2014 - 2015</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> <i class="fa fa-angle-left"></i> 2015</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#type" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Type</a>
+                        <ul class="collapse list-unstyled" id="type">
+                          <li>
+                            <a href="#"><i class="fa fa-caret-right"></i> Movie</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> Series</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#rating" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chevron-right"></i> Rating</a>
+                        <ul class="collapse list-unstyled" id="rating">
+                          <li>
+                            <a href="#"><i class="fa fa-caret-right"></i> 9 - 10</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 8 - 9</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 7 - 8</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> 6 - 7</a>
+                            <a href="#"><i class="fa fa-caret-right"></i> <i class="fa fa-angle-left"></i> 6</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <!-- Admin Panel -->
+                <!-- This panel will be displayed only if the user is an ADMIN -->
+                <ul class="list-unstyled components admPanel">
+                  <li class="active">
+                    <a href="#adminSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
+                    <ul class="collapse list-unstyled" id="adminSubmenu2">
+                      <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-chevron-right"></i> Add Movie</a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="fa fa-chevron-right"></i> Edit User</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <!-- Search -->
+                <div class="col-sm-12 d-flex justify-content-center" id="navSearch">
+                  <form class="form-inline">
+                    <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search" name="query">
+                    <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
+                  </form>
+                </div>
+
+                <!-- Log Out Button -->
+                <div>
+                  <button type="button" class="ml-1 mb-3 mt-1 btn btn-light logout"><i class="fa fa-sign-out"></i><span>Log Out</span></button>
+                </div>
+
               </div>
-            </nav>
-            
-          </div>
-        </div>
-        
-
-        <div id="movie" class="row mt-5">
-          <!-- All the movies will be displayed here -->
-          <!-- Pagination will be added at the end of the page -->
-        </div>
-
-        <!-- Modal Add Movie -->
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Add movie form</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-
-              <!-- Modal body -->
-              <div class="modal-body">
-                <form id="addForm">
-                  Title:<br>
-                  <input class="form-control" type="text" name="title"><br> Year:
-                  <br>
-                  <input class="form-control" type="text" name="year"><br> imdbID:
-                  <br>
-                  <input class="form-control" type="text" name="imdbID"><br> Type:
-                  <br>
-                  <input class="form-control" type="text" name="type"><br> Poster:
-                  <br>
-                  <input class="form-control" type="text" name="poster"><br>
-                  <br>
-                  <div id="succesPost"></div>
-                  <br>
-                  <button class=" btn btn-success" id="addMovie">Add movie</button>
-                  <button type="reset" class=" btn btn-secondary" id="resetForm">Reset the form</button>
-                </form>
-              </div>
-
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-
             </div>
+          </nav>
+
+        </div>
+      </div>
+
+
+      <div id="movie" class="row mt-5">
+        <!-- All the movies will be displayed here -->
+        <!-- Pagination will be added at the end of the page -->
+      </div>
+
+      <!-- Modal Add Movie -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Add movie form</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form id="addForm">
+                Title:<br>
+                <input class="form-control" type="text" name="title"><br> Year:
+                <br>
+                <input class="form-control" type="text" name="year"><br> imdbID:
+                <br>
+                <input class="form-control" type="text" name="imdbID"><br> Type:
+                <br>
+                <input class="form-control" type="text" name="type"><br> Poster:
+                <br>
+                <input class="form-control" type="text" name="poster"><br>
+                <br>
+                <div id="succesPost"></div>
+                <br>
+                <button class=" btn btn-success" id="addMovie">Add movie</button>
+                <button type="reset" class=" btn btn-secondary" id="resetForm">Reset the form</button>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
           </div>
         </div>
-
       </div>
 
     </div>
+
+  </div>
   </div>
 
 </body>
