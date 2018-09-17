@@ -73,7 +73,7 @@ var displayMovie = function(movie) {
   var button = $("<button>More Info</button>").addClass("btn btn-primary btn-block");
 
   button.on("click", function() {
-    window.location = "http://cursuri-robertdanielcsaszar97119.codeanyapp.com/Project/CodeBusters/assets/pages/movie.html?movieId=" + movie.id;
+    window.location = "./assets/pages/movie.html?movieId=" + movie.id;
   })
 
   console.log("Titles: ", movie.title)

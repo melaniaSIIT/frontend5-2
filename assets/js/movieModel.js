@@ -42,18 +42,21 @@ Movie.prototype.getGameDetails = function() {
 }
 
 Movie.prototype.AddMovie = function() {
+  let userToken=localStorage.getItem("Token");
   $.ajax({
     url: "https://ancient-caverns-16784.herokuapp.com/movies",
     method: "POST",
 headers: {
-        'X-Auth-Token': 'b80oqT2NRsAANP5GCf50lgTh5mNE3zuk'
+        'X-Auth-Token': userToken
     },
    data: {
     Title: this.title,
     Year: this.year,
     imdbID: this.imdbID,
     Type: this.type,
-    Poster: this.img
+    Genre: this.genre,
+    Poster: this.img,
+    Language: this.language
   },
     success: function(data){
     console.log("Create movie", data);
@@ -62,5 +65,20 @@ headers: {
     let container2=document.getElementById("succesPost");
     container2.appendChild(succesEl);			  
     }
+});
+}
+
+Movie.prototype.DeleteMovie = function(movieID) {
+  let userToken=localStorage.getItem("Token");
+  $.ajax({
+    url: "https://ancient-caverns-16784.herokuapp.com/movies/"+movieID,
+    method: "DELETE",
+headers: {
+        'X-Auth-Token': userToken
+    },
+    success: function(data){
+      alert("Movie deleted!");
+      window.history.back();
+      },
 });
 }
