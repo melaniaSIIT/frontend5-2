@@ -73,7 +73,10 @@ function domLoaded() {
     
     // Create edit and delete button //
     var editBtn = $("<button class=''>Edit</button>").addClass("btn btn-primary m-2");
-    var delBtn = $("<button class='' id=\"delMovie\">Delete</button>").addClass("btn btn-primary m-2");
+    var delBtn = $("<button class=''>Delete</button>").addClass("btn btn-primary m-2");
+    delBtn.on("click", function() {
+      movie.DeleteMovie(movieId);
+    });
     
     console.log("Title: ", movieDetails.title)
     // Add the movie container in the Main container //
@@ -144,10 +147,5 @@ function domLoaded() {
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
-
-  setTimeout(function (){
-  $('#delMovie').on('click', function() {
-    movie.DeleteMovie(movieId);
-  });}, 1000);
 
 }
