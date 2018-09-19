@@ -44,6 +44,8 @@ var checkUser = function() {
     adminPanel.show();
     logOutBtn.show();
   } else {
+  	name.html("Guest");
+    userRank.html("Viewer");
     loginPanel.show();
     userImg.hide();
     adminPanel.hide();
