@@ -65,7 +65,7 @@ function domLoaded() {
     // Create the back button //
     var backBtn = $("<button><i class='fa fa-angle-double-left'></i> Back</button>").addClass("btn btn-primary m-2");
     backBtn.on("click", function(){
-      window.history.back()
+      window.location = "../../index.html"
     });
     
     var leftCol = $("<div></div>").addClass("col-md-4")
@@ -73,7 +73,8 @@ function domLoaded() {
     
     // Create edit and delete button //
     var editBtn = $("<button class=''>Edit</button>").addClass("btn btn-primary m-2");
-    var delBtn = $("<button class=''>Delete</button>").addClass("btn btn-primary m-2");
+    var delBtn = $("<button class='' id=\"delMovie\">Delete</button>").addClass("btn btn-primary m-2");
+    
     delBtn.on("click", function() {
       movie.DeleteMovie(movieId);
     });
@@ -147,5 +148,4 @@ function domLoaded() {
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
-
 }

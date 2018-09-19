@@ -10,21 +10,44 @@ function domLoaded() {
   });
 }
 
+var populate =  function() {
+  $.ajax({
+    url: "https://ancient-caverns-16784.herokuapp.com/movies/all",
+    method: "POST",
+    success: function(data) {
+      console.log("Populated", data);
+      alert("All movies added!")
+      location.reload();
+    }
+  })
+}
+
+// Check if the user is logged in or not //
 var checkUser = function() {
   var loginPanel = $(".login");
   var logOutBtn = $(".logout");
   var userPanel = $(".userPanel");
+  var userImg = $(".userPanel img")
   var adminPanel = $(".admPanel");
   var name = $("#name");
+  var userRank = $("#userRank");
   var token = localStorage.getItem("Token");
   var auth = localStorage.getItem("Auth");
   var getName = localStorage.getItem("Name");
+  var admin = "Admin"
   if (token && auth !== null) {
-    name.append(getName)
+    name.html(getName);
+    userRank.html(admin);
     loginPanel.hide();
     userPanel.show();
+    userImg.show();
     adminPanel.show();
     logOutBtn.show();
+  } else {
+    loginPanel.show();
+    userImg.hide();
+    adminPanel.hide();
+    logOutBtn.hide();
   }
 }
 

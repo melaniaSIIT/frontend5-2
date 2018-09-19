@@ -18,8 +18,8 @@ function domLoaded() {
 
     // Create modal header with Image //
     var header = $("<div></div>").addClass("modal-header");
-    var image = $("<img src='https://fs.codeanywhere.com/file/open?token=64c47bf52353d4ae77fcd601572e89714790f253eb7d6e3e&connectionId=1689917&path=Project/CodeBusters/assets/images/login-img.jpg&encoding=UTF-8&id=4818c5faf16a6760ced07bf35241dda4&' alt='Login Image' >").addClass("img-fluid");
-
+    var image = $("<img src='https://image.ibb.co/iaLo1e/open.jpg' alt='Login Image' >").addClass("img-fluid");
+    
     // Create modal body //
     var body = $("<div></div>").addClass("modal-body");
 
@@ -41,7 +41,7 @@ function domLoaded() {
     var footer = $("<div></div>").addClass("modal-footer");
 
     // Create Login button //
-    var loginButton = $("<button type='submit' id='btn-login' data-dismiss='modal'>Login</button>").addClass("btn btn-danger");
+    var loginButton = $("<button type='submit' id='btn-login' data-toggle='modal' data-target='#confirm' data-dismiss='modal'>Login</button>").addClass("btn btn-danger");
 
     $('body').append(container);
 
@@ -98,11 +98,11 @@ function domLoaded() {
           password: password
         },
         statusCode: {
-          200: function (response) {
-             console.log("You have successfully logged in.")
+          200: function(response) {
+            $("#msg").html("You have successfully logged in.")
           },
-          401: function (response) {
-             console.log(response.responseJSON.message)
+          401: function(response) {
+            $("#msg").html(response.responseJSON.message)
           }
         },
         success: function(response) {

@@ -5,6 +5,8 @@ function onhtmlloaded() {
 
   $('#addMovie').on('click', function(event) {
     event.preventDefault();
+   
+    $("#msg").html("Movie successfully added.");
 
     //alert('S-a apasat.');
     let movieTitle = $('[name="title"]').val();
@@ -14,7 +16,7 @@ function onhtmlloaded() {
     let movieGenre = $('[name="genre"]').val();
     let moviePoster = $('[name="poster"]').val();
     let movieLanguage = $('[name="language"]').val();
-    
+
     const movie = new Movie({
       Title: movieTitle,
       Year: movieYear,
@@ -23,8 +25,9 @@ function onhtmlloaded() {
       Poster: moviePoster,
       Genre: movieGenre,
       Language: movieLanguage
+      
     });
-
+    
     movie.AddMovie();
 
   });
