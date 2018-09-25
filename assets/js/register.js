@@ -31,7 +31,7 @@ function domLoaded() {
 
     // Create Inputs //
     var fullname = $("<input type='text' id='nameReg' placeholder='Full Name'>").addClass("form-control");
-	  var emailAddress = $("<input type='email' id='emailReg' placeholder='Email Address'>").addClass("form-control");
+    var emailAddress = $("<input type='email' id='emailReg' placeholder='Email Address'>").addClass("form-control");
     var userName = $("<input type='text' id='userReg' placeholder='Username'>").addClass("form-control");
     var password = $("<input type='password' id='passReg' placeholder='Password'>").addClass("form-control");
 
