@@ -31,8 +31,7 @@
   <script src="./assets/js/register.js"></script>
   <script src="./assets/js/search.js"></script>
   <!-- Favicon -->
-  <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon"/>
-
+  <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon" />
 </head>
 
 <body onload="checkUser()">
@@ -163,7 +162,7 @@
           <div class="col-md-6 d-flex justify-content-end">
             <form class="form-inline" id="homeSearch">
               <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search..." name="query">
-              <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
+              <button class=" btn btn-success searchBtn" type="button" onclick="searchResult()"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
@@ -274,7 +273,7 @@
                   <div class="col-sm-12 d-flex justify-content-center mb-2" id="navSearch">
                     <form class="form-inline">
                       <input class="form-control mr-sm-2 searchBar" type="text" placeholder="Search" name="query">
-                      <button class=" btn btn-success searchBtn" type="button"><i class="fa fa-search"></i></button>
+                      <button class=" btn btn-success searchBtn" type="button" onclick="searchResult()"><i class="fa fa-search"></i></button>
                     </form>
                   </div>
 

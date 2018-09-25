@@ -31,6 +31,8 @@ var checkUser = function() {
   var adminPanel = $(".admPanel");
   var name = $("#name");
   var userRank = $("#userRank");
+  var editBtn = $("#edit");
+  var deleteBtn = $("#del");
   var token = localStorage.getItem("Token");
   var auth = localStorage.getItem("Auth");
   var getName = localStorage.getItem("Name");
@@ -43,6 +45,8 @@ var checkUser = function() {
     userImg.show();
     adminPanel.show();
     logOutBtn.show();
+    editBtn.show();
+    deleteBtn.show();
   } else {
   	name.html("Guest");
     userRank.html("Viewer");
@@ -50,6 +54,8 @@ var checkUser = function() {
     userImg.hide();
     adminPanel.hide();
     logOutBtn.hide();
+    editBtn.hide();
+    deleteBtn.hide();
   }
 }
 
@@ -100,9 +106,7 @@ var displayMovie = function(movie) {
   button.on("click", function() {
     window.location = "./assets/pages/movie.html?movieId=" + movie.id;
   })
-
-  console.log("Titles: ", movie.title)
-  // Add the movie container in the Main container //
+  
   mainCont.append(movieDiv);
 
   // Add a card for each movie //
@@ -145,8 +149,9 @@ var displayMovie = function(movie) {
 
   // Add button with "More Info" text for each movie //
   cardFooter.append(button);
-}
 
+  checkUser()
+}
 
 // Create Pagination // 
 var addPagination = function(moviesData) {

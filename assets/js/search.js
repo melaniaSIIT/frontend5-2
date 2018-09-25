@@ -1,66 +1,31 @@
- $(onHtmlLoaded);
-    
-    // SearchBar Functionality //
-function onHtmlLoaded() {
-    
+var searchResult = function() {
+  var search = $(".searchBar").val()
+  $("#movies").empty();
 
+  // Create the container for back button //
+  var container = $("<div></div>").addClass("container");
+  var row = $("<div></div>").addClass("row");
+  var col = $("<div></div>").addClass("col-md-1 mt-2 mb-2 ");
+  var button = $("<button><i class='fa fa-angle-double-left'></i>Back</button>").addClass("btn btn-primary");
 
-    var getShowsData = function(searchVal) {
-
-    var options = {
-      url: 'https://ancient-caverns-16784.herokuapp.com/movies?Title=' + searchVal,
-      method: 'GET',
-      success: filterMovies
-    }
-
-    $.ajax(options);
-  }
-
-                  
-  $('#homeSearch').keyup(function(event) {
-    if (event.which || event.keyCode === 13) {
-      var query = $('[name="query"]').val()
-      getShowsData(query);
-    }
-  });
-
-  $('#srcBtn').on('click', function() {
-      var query = $('[name="query"]').val()
-      getShowsData(query);
-//      displayMovie(query);
-  });
-
-    
-    function filterMovies(data) {
-    $('#movies').html(renderHtml(data));
-  }   
-    
-    
-    
- function renderHtml(data) {
+  button.on("click", function() {
+    window.location = "./index.html"
+  })
   
-     var html = `<ul>`
-    // console.log(data.results.length);
-    var length = data.results.length;
-    for (i = 0; i < length; i++) {
-      console.log(data.results[i].Title);
-      var title = data.results[i].Title;
-      var year = data.results[i].Year;
-      var genre = data.results[i].Genre;
-      // var url = data[i].show.url
-      // console.log(data[i]);
-
-      html += `<li>` + title + ' | ' + year + ' | ' + genre + `</li>`
+  // Add the back button on the page //
+  $("#movies").append(container)
+  container.append(row)
+  row.append(col)
+  col.append(button)
+  
+  $.ajax({
+    url: "https://ancient-caverns-16784.herokuapp.com/movies?Title=" + search,
+    success: function(response) {
+      for (var i = 0; i < response.results.length; i++) {
+        var searchResult = new Movie(response.results[i]);
+        console.log(searchResult)
+        displayMovie(searchResult);
+      }
     }
-
-    html += `</ul>`
-    return html;
-  }
-    }
-
-
-
-    
-
-
-    
+  })
+}
